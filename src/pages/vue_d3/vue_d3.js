@@ -1,34 +1,8 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-/* 以Vue为主导 */
-// import chart from '@/components/Vue-D3'
-/* eslint-disable no-new */
-// const vm = new Vue({
-//   el: '#app',
-//   data: {
-//     data: []
-//   },
-//   template: '<chart :data="data"/>',
-//   components: {chart}
-// })
-// window.setInterval(function () {
-//   const data = []
-//   for (let i = 0; i < 100; i++) {
-//     data.push([Math.random() * 10, Math.random() * 10])
-//   }
-//   vm.$data.data = data
-// }, 1000)
-/* 以D3为主导 */
-// import {init, svg} from '@/components/D3-Vue'
-// const char = init
-// const node = svg
-// document.querySelector('#app').appendChild(node.node())
-// char()
-//
 import * as d3 from 'd3'
-import net from '@/components/net_effi'
-// const bodyStyle = getComputedStyle(document.querySelector('body'))
+import net from './vue.vue_d3.vue'
 const width = window.innerWidth
 const height = window.innerHeight
 const data = {
@@ -394,54 +368,3 @@ simulation
 vm.$data.net = data
 simulation.force('link').links(data.links)
 console.time('tick')
-// function createNew () {
-//   const length1 = new Array(parseInt(Math.random() * 50 + 50)).fill(null)
-//   const length2 = new Array(parseInt(Math.random() * 50 + 50)).fill(null)
-//   const nodes = length1.map(function () {
-//     return {
-//       x: Math.random() * width,
-//       y: Math.random() * height,
-//       r: Math.random() * 8 + 8,
-//       selected: Math.random() > 0.5,
-//       id: '_' + Math.random() * 1000000
-//     }
-//   })
-//   const links = length2.map(() => ({
-//     x1: Math.random() * width,
-//     x2: Math.random() * width,
-//     y1: Math.random() * height,
-//     y2: Math.random() * height,
-//     selected: Math.random() > 0.5,
-//     id: '_' + Math.random() * 1000000
-//   }))
-//   return {
-//     links, nodes
-//   }
-// }
-// setInterval(function () {
-//   vm.$data.net = createNew()
-// }, 1000)
-// function ticked () {
-//   let nodes = []
-//   let links = []
-//   data.nodes.forEach((d) => {
-//     nodes.push({
-//       x: d.x,
-//       y: d.y,
-//       r: 3,
-//       selected: false,
-//       id: d.id
-//     })
-//   })
-//   data.links.forEach((d) => {
-//     links.push({
-//       x1: d.source.x,
-//       x2: d.target.x,
-//       y1: d.source.y,
-//       y2: d.target.y,
-//       selected: false,
-//       id: d.index
-//     })
-//   })
-//   vm.$data.net = {nodes, links}
-// }
